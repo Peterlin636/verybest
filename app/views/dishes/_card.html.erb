@@ -6,27 +6,21 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Note</dt>
-      <!-- Display note start -->
       <dd><%= dish.note %></dd>
-      <!-- Display note end -->
 
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @dish.user.present? %>
           <%= link_to dish.user, dish.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Restaurant</dt>
-      <!-- Display restaurant_id start -->
       <dd>
         <% if @dish.restaurant.present? %>
           <%= link_to dish.restaurant, dish.restaurant %>
         <% end %>
       </dd>
-      <!-- Display restaurant_id end -->
 
     </dl>
 
@@ -35,7 +29,6 @@
         <%= link_to_show_or_back dish, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link dish start -->
       <div class="col">
         <% if current_user == @dish.user %>
           <%= link_to edit_dish_url(dish), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -43,9 +36,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link dish end -->
 
-      <!-- Delete link dish start -->
       <div class="col">
         <% if current_user == @dish.user %>
           <%= link_to dish, method: :delete, data: { confirm: "Do you really want to delete this dish?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -53,7 +44,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link dish end -->
     </div>
   </div>
 
