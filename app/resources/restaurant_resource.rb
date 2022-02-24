@@ -13,5 +13,4 @@ class RestaurantResource < ApplicationResource
   has_many   :likes
 
   # Indirect associations
-
 end

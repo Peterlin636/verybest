@@ -4,7 +4,7 @@ class Dish < ApplicationRecord
   belongs_to :restaurant
 
   has_many   :likes,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :user
 
@@ -17,5 +17,4 @@ class Dish < ApplicationRecord
   def to_s
     note
   end
-
 end
