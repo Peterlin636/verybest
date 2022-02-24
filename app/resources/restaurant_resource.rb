@@ -6,6 +6,8 @@ class RestaurantResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :dishes
+
   has_many   :bookmarks
 
   has_many   :likes
