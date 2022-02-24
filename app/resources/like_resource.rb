@@ -8,6 +8,8 @@ class LikeResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :restaurant
+
   belongs_to :dish
 
   belongs_to :user
