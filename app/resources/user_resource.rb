@@ -7,6 +7,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :likes
+
   has_many   :dishes
 
   # Indirect associations
