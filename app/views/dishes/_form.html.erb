@@ -1,0 +1,83 @@
+<% was_validated = dish.errors.any? %>
+
+<%= form_with(model: dish, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for note start -->
+  <div class="form-group">
+    <% note_class = "form-control" %>
+    <% note_was_invalid = dish.errors.include?(:note) %>
+
+    <% if was_validated %>
+      <% if note_was_invalid %>
+        <% note_class << " is-invalid" %>
+      <% else %>
+        <% note_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :note %>
+    <!-- Input for note start -->
+    <%= f.text_field :note, class: note_class, placeholder: "Enter note" %>
+    <!-- Input for note end -->
+    <% if note_was_invalid %>
+      <% dish.errors.full_messages_for(:note).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for note end -->
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = dish.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% dish.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for restaurant_id start -->
+  <div class="form-group">
+    <% restaurant_class = "form-control" %>
+    <% restaurant_was_invalid = dish.errors.include?(:restaurant) %>
+
+    <% if was_validated %>
+      <% if restaurant_was_invalid %>
+        <% restaurant_class << " is-invalid" %>
+      <% else %>
+        <% restaurant_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :restaurant_id %>
+    <!-- Input for restaurant_id start -->
+    <%= f.number_field :restaurant_id, class: restaurant_class, placeholder: "Enter restaurant" %>
+    <!-- Input for restaurant_id end -->
+    <% if restaurant_was_invalid %>
+      <% dish.errors.full_messages_for(:restaurant).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for restaurant_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
